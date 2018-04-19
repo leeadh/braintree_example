@@ -5,19 +5,17 @@
   <div class="checkout container">
 
     <header>
-      <h1>Hi, <br>Let's test a transaction</h1>
-      <p>
-        Make a test payment with Braintree using PayPal or a card
-      </p>
+      <h1>Hey there<br>Let's test a transaction out</h1>
+
     </header>
 
     <form id="payment-form" method="post" action="/proc">
       <section>
         <label for="amount">
           <span class="input-label">Amount</span>
-          <div class="input-wrapper amount-wrapper">
-            <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
-          </div>
+
+            <input class="form-control" id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+
         </label>
 
         <div class="bt-drop-in-wrapper">
@@ -26,7 +24,7 @@
       </section>
 
       <input type="hidden" id="nonce" name="payment_method_nonce" />
-      <button class="button" type="submit" id="submit-button"><span>Test Transaction</span></button>
+      <button class="btn btn-primary" type="submit" id="submit-button"><span>Submit transaction</span></button>
     </form>
 
   </div>
@@ -36,13 +34,14 @@
   <script src="https://js.braintreegateway.com/web/dropin/1.9.4/js/dropin.min.js"></script>
   <script>
     var form = document.querySelector('#payment-form');
-    var client_token = '{{ client_token }}';
+    var client_token = '{{token}}';
 
     braintree.dropin.create({
       authorization: "{{token}}",
       container: '#bt-dropin'
     }, function (createErr, instance) {
-      button.addEventListener('click', function () {
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
         instance.requestPaymentMethod(function (err, payload) {
           document.querySelector('#nonce').value = payload.nonce;
           form.submit();
