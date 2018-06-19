@@ -14,9 +14,6 @@ node {
         app = docker.build("leeadh/braintree-docker")
     }
 
-    stage('Test image') {
-        sh 'export GOSS_FILES_STRATEGY=cp && /usr/local/bin/dgoss  run --name jenkins-docker-dgoss-test --rm -ti leeadh/braintree-docker'
-    }
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
