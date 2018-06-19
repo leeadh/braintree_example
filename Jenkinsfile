@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("leeadh/braintree_example")
+        app = docker.build("leeadh/braintree-docker")
     }
 
     stage('Test image') {
