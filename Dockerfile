@@ -9,6 +9,7 @@ RUN apt-get install -y python-pip python-dev build-essential
 
 RUN export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE="Password123!"
 RUN export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE="Password123!"
+RUN export DOCKER_CONTENT_TRUST=1
 
 COPY . /app
 WORKDIR /app
