@@ -10,7 +10,9 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
+        RUN export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE="Password123!"
+        RUN export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE="Password123!"
+        RUN export DOCKER_CONTENT_TRUST=1
         app = docker.build("leexha/jenkinsexampleautomation")
     }
 
