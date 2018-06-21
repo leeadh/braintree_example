@@ -12,7 +12,7 @@ node {
          * docker build on the command line */
         sh 'export DOCKER_CONTENT_TRUST=1'
         
-        app = docker.build("leexha/jenkinsexampleautomation")
+        app = docker.build("leexha/testva")
     }
 
 
