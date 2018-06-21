@@ -11,6 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         sh 'export DOCKER_CONTENT_TRUST=1'
+        sh 'echo $DOCKER_CONTENT_TRUST'
         
         app = docker.build("leexha/hello")
     }
