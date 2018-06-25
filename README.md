@@ -28,3 +28,15 @@ or you can sign in using your PayPal Sandbox account
 * Run `Python app.py` in the root project folder to run the server 
 * Visit `http://127.0.0.1:5000/` in your browser
 * Proceed as above
+
+
+## Docker Content Trust signing
+1) Do a docker pull of notary
+2) git clone https://github.com/theupdateframework/notary.git
+3) cd notary 
+4) docker-compose build
+5) docker-compose up -d
+6) mkdir -p ~/.notary && cp cmd/notary/config.json cmd/notary/root-ca.crt ~/.notary
+7) Cp ~/.notary/ ~/usr/local/ca-certificates
+8) cd to ca-certificate and execute update-ca-certificate
+9) service docker restart
