@@ -24,6 +24,7 @@ node {
             export DOCKER_CONTENT_TRUST=1
             export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=Password123!
             export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=Password123!
+            export DOCKER_CONTENT_TRUST_SERVER=https://127.0.0.1:4443
         """
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
