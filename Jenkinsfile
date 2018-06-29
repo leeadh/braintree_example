@@ -21,15 +21,7 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                        sh"""
-            export DOCKER_CONTENT_TRUST=1
-            export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=Password123!
-            export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=Password123!
-            docker build -t leexha/test12345678:latest .
-            docker push leexha/test12345678:latest
-        
-       
-            """
+            app.push("${env.BUILD_NUMBER}")
 
         }
     }
