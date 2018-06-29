@@ -24,7 +24,7 @@ node {
             export DOCKER_CONTENT_TRUST=1
         export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=Password123!
         export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=Password123!
-        docker build -t leexha/sample12345:latest 
+        docker build -t leexha/sample12345:latest .
         docker push leexha/sample12345:latest
         
        
