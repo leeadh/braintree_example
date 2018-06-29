@@ -32,6 +32,7 @@ node {
             #docker-compose up -d
             #mkdir -p ~/.notary && cp cmd/notary/config.json cmd/notary/root-ca.crt ~/.notary
             #export dockerpid=\$!
+            cp -rpf /var/lib/jenkins/.docker ~/
         """
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
