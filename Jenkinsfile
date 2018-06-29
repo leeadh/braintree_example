@@ -20,7 +20,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        sh'
+        sh"""
             export DOCKER_CONTENT_TRUST=1
         export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=Password123!
         export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=Password123!
@@ -28,7 +28,7 @@ node {
         docker push leexha/sample12345:latest
         
        
-        '
+        """
     }
 }
 
