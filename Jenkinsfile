@@ -25,7 +25,7 @@ node {
             export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=Password123!
             export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=Password123!
             export DOCKER_CONTENT_TRUST_SERVER=https://127.0.0.1:4443
-            git clone https://github.com/theupdateframework/notary.git
+            #git clone https://github.com/theupdateframework/notary.git
             cd notary
             docker-compose build
             docker-compose up -d
