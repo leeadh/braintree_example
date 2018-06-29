@@ -26,11 +26,11 @@ node {
             export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=Password123!
             export DOCKER_CONTENT_TRUST_SERVER=https://127.0.0.1:4443
             #git clone https://github.com/theupdateframework/notary.git
-            cd notary
-            docker-compose build
-            docker-compose up -d
-            mkdir -p ~/.notary && cp cmd/notary/config.json cmd/notary/root-ca.crt ~/.notary
-            export dockerpid=\$!
+            #cd notary
+            #docker-compose build
+            #docker-compose up -d
+            #mkdir -p ~/.notary && cp cmd/notary/config.json cmd/notary/root-ca.crt ~/.notary
+            #export dockerpid=\$!
         """
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
@@ -39,7 +39,7 @@ node {
         }
         
         sh """
-            kill -9 $dockerpid
+            #kill -9 $dockerpid
         """
        
     }
