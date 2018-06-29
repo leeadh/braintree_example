@@ -30,13 +30,17 @@ node {
             docker-compose build
             docker-compose up -d
             mkdir -p ~/.notary && cp cmd/notary/config.json cmd/notary/root-ca.crt ~/.notary
-            export dockerpid=$!
+            export dockerpid=\$!
         """
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
 
 
         }
+        
+        sh """
+            kill -9 $dockerpid
+        """
        
     }
 }
