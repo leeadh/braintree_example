@@ -25,7 +25,7 @@ node {
             export DOCKER_CONTENT_TRUST=1
             export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=Password123!
             export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=Password123!
-            export DOCKER_CONTENT_TRUST_SERVER=https://notary.docker.io/
+            #export DOCKER_CONTENT_TRUST_SERVER=https://notary.docker.io/
             #git clone https://github.com/theupdateframework/notary.git
             #cd notary
             #docker-compose build
